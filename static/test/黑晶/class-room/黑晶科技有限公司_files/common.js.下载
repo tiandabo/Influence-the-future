@@ -1,0 +1,119 @@
+(function($){
+    var submenuTimer = '';
+    var Common = {
+        init: function(){
+            this.events();
+            this.share();
+        },
+        events: function(){
+            $("div[id^='J_PlayVideo']").on("click", function(r) {
+                    var id = $(this).attr('id');
+                    
+                    // console.log(parseInt('AABB1'))
+                    $(".video-layer"+(id.replace(/[^0-9]/ig,""))).show()
+                })
+                
+                $(".video-layer").click(function () {
+                    $(".video-layer").hide();
+                    $("body").css("overflow", "auto");
+               })
+            $('.header .m-item.pangolin').on('mouseenter', function(){debugger;
+                $('.sub-menu-con').removeClass('sub-hide');
+            }).on('mouseleave',function(){
+             submenuTimer = setTimeout(function(){
+                 $('.sub-menu-con').addClass('sub-hide');
+             },200);
+            });
+            $('.sub-menu').on('mouseenter',function(){
+                clearTimeout(submenuTimer);
+                $('.sub-menu-con').removeClass('sub-hide');
+            }).on('mouseleave',function(){
+                $('.sub-menu-con').addClass('sub-hide');
+            });
+
+            $(".header .m-item.superclass").on("mouseenter", function() {
+                $(".sub-menu-con-c").removeClass("sub-hide-c")
+            }).on("mouseleave", function() {
+                n = setTimeout(function() {
+                    $(".sub-menu-con-c").addClass("sub-hide-c")
+                }, 200)
+            });
+            $(".sub-menu-c").on("mouseenter", function() {
+                clearTimeout(n), $(".sub-menu-con-c").removeClass("sub-hide-c")
+            }).on("mouseleave", function() {
+                $(".sub-menu-con-c").addClass("sub-hide-c")
+            });
+            
+            $(".header .m-item.scenic").on("mouseenter", function() {
+                $(".sub-menu-con-s").removeClass("sub-hide-s")
+            }).on("mouseleave", function() {
+                n = setTimeout(function() {
+                    $(".sub-menu-con-s").addClass("sub-hide-s")
+                }, 200)
+            });
+            $(".sub-menu-s").on("mouseenter", function() {
+                clearTimeout(n), $(".sub-menu-con-s").removeClass("sub-hide-s")
+            }).on("mouseleave", function() {
+                $(".sub-menu-con-s").addClass("sub-hide-s")
+            });
+
+            $(".header .m-item.about").on("mouseenter", function() {
+                $(".sub-menu-con-a").removeClass("sub-hide-a")
+            }).on("mouseleave", function() {
+                n = setTimeout(function() {
+                    $(".sub-menu-con-a").addClass("sub-hide-a")
+                }, 200)
+            });
+            $(".sub-menu-a").on("mouseenter", function() {
+                clearTimeout(n), $(".sub-menu-con-a").removeClass("sub-hide-a")
+            }).on("mouseleave", function() {
+                $(".sub-menu-con-a").addClass("sub-hide-a")
+            });
+            
+            $('#J_AskNow').on('click', function(e){
+                e.preventDefault();
+            });
+        },
+        share: function(){
+            $(".twb").on('click', function(e) {
+                e.preventDefault();
+                var _t = encodeURI('榛戞櫠(闈掑矝)淇℃伅鎶€鏈湁闄愬叕鍙�');
+                var _url = encodeURI(document.location);
+                var _appkey = encodeURI("a178d6f5d394c0457856e4953757134b");
+                var _pic = encodeURI(''); //锛堝垪濡傦細var _pic='鍥剧墖url1|鍥剧墖url2|鍥剧墖url3....锛� 
+                var _site = 'http://www.heivr.com'; //浣犵殑缃戠珯鍦板潃 
+                var _u = 'http://v.t.qq.com/share/share.php?title=' + _t + '&url=' + _url + '&appkey=' + _appkey + '&site=' + _site + '&pic=' + _pic;
+                window.open(_u, '杞挱鍒拌吘璁井鍗�', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');
+                return false;
+            });
+            //鑵捐绌洪棿鍒嗕韩
+            $(".qzone").on('click',function() {
+                var _t = encodeURI('榛戞櫠(闈掑矝)淇℃伅鎶€鏈湁闄愬叕鍙�');
+                var _url = encodeURI(document.location);
+                var _appkey = encodeURI("a178d6f5d394c0457856e4953757134b");
+                var _pic = encodeURI(''); //锛堝垪濡傦細var _pic='鍥剧墖url1|鍥剧墖url2|鍥剧墖url3....锛� 
+                var _site = 'http://www.heivr.com'; //浣犵殑缃戠珯鍦板潃 
+                var _desc = '';
+                var _summary = encodeURI('榛戞櫠(闈掑矝)淇℃伅鎶€鏈湁闄愬叕鍙�');
+                var _u = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title=' + _t + '&url=' + _url + '&desc=' + _desc + '&summary=' + _summary + '&site=' + _site + '&pics=' + _pic;
+                window.open(_u, '杞挱鍒癚Q绌洪棿', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');
+                return false;
+            });
+
+            //鏂版氮寰崥鍒嗕韩
+            $(".weibo").on('click', function() {
+                var _t = encodeURI('榛戞櫠(闈掑矝)淇℃伅鎶€鏈湁闄愬叕鍙�');
+                var _url = encodeURI(document.location);
+                var _appkey = encodeURI("a178d6f5d394c0457856e4953757134b");
+                var _pic = encodeURI('');  
+                var _site = 'http://www.heivr.com'; 
+                var _desc = '';
+                var _summary = encodeURI('榛戞櫠(闈掑矝)淇℃伅鎶€鏈湁闄愬叕鍙�');
+                var _u = 'http://v.t.sina.com.cn/share/share.php?title=' + _t + '&url=' + _url + '&desc=' + _desc + '&summary=' + _summary + '&site=' + _site + '&pic=' + _pic;
+                window.open(_u, '杞挱鍒版柊娴井鍗�', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');
+                return false;
+            });
+        }
+    }
+    Common.init();
+})(jQuery)
