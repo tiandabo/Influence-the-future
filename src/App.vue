@@ -57,7 +57,9 @@
 		margin: 0;
 		padding: 0;
 	}
-	
+	.app {
+		min-width: 1100px;
+	}
 	.backTop {
 		position: fixed;
 		right: 50px;

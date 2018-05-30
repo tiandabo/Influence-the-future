@@ -7,6 +7,8 @@ import Camera from '@/page/Camera';
 import Classroom from '@/page/Classroom';
 import Estate from '@/page/Estate';
 import Tourism from '@/page/Tourism';
+import Buy from '@/page/Buy';
+import Party from '@/page/Party';
 
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ export default new Router({
       path: '/tourism',
       name: 'tourism',
       component: Tourism
+    },
+    {
+      path: '/party',
+      name: 'party',
+      component: Party
+    },
+    {
+      path: '/buy',
+      name: 'buy',
+      component: Buy
     },
   ]
 })

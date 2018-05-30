@@ -1,7 +1,7 @@
 <template>
   <div class="estate">
       <!-- vr地产 -->
-      <banner imgUrl="../../static/test/黑晶/home/img-9.png" bgColor="#EBEAE1" :bannerText="bannerText"></banner>
+      <banner imgUrl="static/test/黑晶/home/img-9.png" bgColor="#EBEAE1" :bannerText="bannerText"></banner>
       <div class="guide">
           <div v-for="i in guide">
               <h2>{{i.title}}</h2>
@@ -58,17 +58,17 @@
                     {
                         title: 'VR超级样板间',
                         text: '戴上VR头盔，如同站在真实样板间内，可自由“进入”每个房间：卧室、厨房、客厅、阳台等，甚至可以感受层高、空间、光线、昼夜变化，更换家具、随心设计装修风格，尽情享受未来的家。',
-                        imgUrl: './../static/test/黑晶/地产/pic-2.png'
+                        imgUrl: 'static/test/黑晶/地产/pic-2.png'
                     },
                     {
                         title: 'VR超级样板间',
                         text: '戴上VR头盔，如同站在真实样板间内，可自由“进入”每个房间：卧室、厨房、客厅、阳台等，甚至可以感受层高、空间、光线、昼夜变化，更换家具、随心设计装修风格，尽情享受未来的家。',
-                        imgUrl: './../static/test/黑晶/地产/pic-2.png'
+                        imgUrl: 'static/test/黑晶/地产/pic-2.png'
                     },
                     {
                         title: 'VR超级样板间',
                         text: '戴上VR头盔，如同站在真实样板间内，可自由“进入”每个房间：卧室、厨房、客厅、阳台等，甚至可以感受层高、空间、光线、昼夜变化，更换家具、随心设计装修风格，尽情享受未来的家。',
-                        imgUrl: './../static/test/黑晶/地产/pic-2.png'
+                        imgUrl: 'static/test/黑晶/地产/pic-2.png'
                     },
                 ],
                 caseStudy: [
@@ -76,20 +76,20 @@
                 			title: 'VR超级样板间',
                       text: '戴上VR头盔，如同站在真实样板间内，可自由“进入”每个房间：卧室、厨房、客厅、阳台等，甚至可以感受层高、空间、光线、昼夜变化，更换家具、随心设计装修风格，尽情享受未来的家。',
                       imgUrl: [
-                      		'../../static/test/黑晶/地产/pic-5.png',
-                      		'../../static/test/黑晶/地产/pic-6.png',
-                      		'../../static/test/黑晶/地产/pic-7.png',
-                      		'../../static/test/黑晶/地产/pic-8.png',
+                      		'static/test/黑晶/地产/pic-5.png',
+                      		'static/test/黑晶/地产/pic-6.png',
+                      		'static/test/黑晶/地产/pic-7.png',
+                      		'static/test/黑晶/地产/pic-8.png',
                       ]
                 		},
                 		{
                 			title: '鲁能智慧地产营销中心',
                       text: '为鲁能集团打造智慧地产营销中心，通过互动橱窗、光影沙盘、地面互动投影、AR游戏互动等，主动精准推送，实现智慧化互动营销。',
                       imgUrl: [
-                      		'../../static/test/黑晶/地产/pic-9.png',
-                      		'../../static/test/黑晶/地产/pic-10.png',
-                      		'../../static/test/黑晶/地产/pic-11.png',
-                      		'../../static/test/黑晶/地产/pic-12.png',
+                      		'static/test/黑晶/地产/pic-9.png',
+                      		'static/test/黑晶/地产/pic-10.png',
+                      		'static/test/黑晶/地产/pic-11.png',
+                      		'static/test/黑晶/地产/pic-12.png',
                       ]
                 		},
                 ]
@@ -104,6 +104,9 @@
     * {
         margin: 0;
         padding: 0;
+    }
+    .estate {
+    	min-width: 1100px;
     }
     .guide {
         width: 60%;

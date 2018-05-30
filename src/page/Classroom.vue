@@ -1,6 +1,6 @@
 <template>
 	<div id="classroom">
-		<banner imgUrl="../../static/test/黑晶/banner/0f94ee762915c2de1d5070f7dccad388.jpg"></banner>
+		<banner imgUrl="static/test/黑晶/banner/0f94ee762915c2de1d5070f7dccad388.jpg"></banner>
 		<div class="solution">
 			<p class="solution-name">VR教育一体化解决方案</p>
 			<div class="solution-sort">
@@ -35,7 +35,7 @@ export default {
       tables: [
         {
           name: "VR-K12学科教育",
-          imgUrl: "../../static/test/黑晶/class-room/451.png",
+          imgUrl: "static/test/黑晶/class-room/451.png",
           context:
             "以教学大纲为基础，适用于全国小、初、高教材的全沉浸、交互式VR课程",
           trs: [
@@ -48,7 +48,7 @@ export default {
         },
         {
           name: "STEAM创客教育",
-          imgUrl: "../../static/test/黑晶/class-room/452.png",
+          imgUrl: "static/test/黑晶/class-room/452.png",
           context:
             "以教学大纲为基础，适用于全国小、初、高教材的全沉浸、交互式VR课程",
           trs: [
@@ -61,7 +61,7 @@ export default {
         },
         {
           name: "VR兴趣学习角",
-          imgUrl: "../../static/test/黑晶/class-room/453.png",
+          imgUrl: "static/test/黑晶/class-room/453.png",
           context:
             "以教学大纲为基础，适用于全国小、初、高教材的全沉浸、交互式VR课程",
           trs: [
@@ -76,18 +76,7 @@ export default {
     };
   },
   methods: {
-    // ajaxs() {
-    //   axios({
-    //     method: "get",
-    //     url: "http://cangdu.org:8001/v1/cities?type=group"
-    //   })
-    //     .then(function(res) {
-    //       console.log(res);
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err);
-    //     });
-    // }
+ 
   },
   mounted() {
 	   axios({
@@ -112,7 +101,9 @@ export default {
   margin: 0;
   padding: 0;
 }
-
+.classroom {
+	min-width: 1100px;
+}
 .solution {
   text-align: center;
   .solution-name {

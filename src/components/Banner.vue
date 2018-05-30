@@ -25,6 +25,7 @@
    }
    .banner {
    	width: 100%;
+   	min-width: 1100px;
     height: 650px;
 	overflow: hidden;
    	>img {

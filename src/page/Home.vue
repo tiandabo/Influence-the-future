@@ -4,6 +4,9 @@
 			<div class="swiper-wrapper">
 				<div class="swiper-slide" v-for="i in imgUrl">
 					<img :src="i" />
+					<div class="banner-text">
+						<p>影响未来电子科技集团</p>
+					</div>
 				</div>
 			</div>
 			<!-- 如果需要分页器 -->
@@ -28,7 +31,7 @@
 		<!-- <div class="education">
 			<div class="education-text">应用案例</div>
 			<div class="education-img">
-				<img src="../../static/test/vr1.jpg"/>
+				<img src="static/test/vr1.jpg"/>
 			</div>
 		</div> -->
 	</div>
@@ -41,15 +44,15 @@
 		data() {
 			return {
 				imgUrl: [
-					'../../static/test/vr0.jpg',
-					'../../static/test/下载 (1).jpg',
-					'../../static/test/下载.jpg'
+					'static/test/vr0.jpg',
+					'static/test/下载 (1).jpg',
+					'static/test/下载.jpg'
 				],
 				trend: [
 					{
 						num: '01',
 						name: 'VR教育',
-						imgUrl:'../../static/test/黑晶/home/img-1.png',
+						imgUrl:'static/test/黑晶/home/img-1.png',
 						context: '校园创客空间虚拟现实解决方案，为学生打造一个自由的、动手实现创意的VR教育平台。',
 						bgColor: '#F6F7F2',
 						textColor: '#000'
@@ -57,7 +60,7 @@
 					{
 						num: '02',
 						name: 'VR安全',
-						imgUrl:'../../static/test/黑晶/home/img-2.png',
+						imgUrl:'static/test/黑晶/home/img-2.png',
 						context: 'VR消防/地震/溺水/用电/自然灾害等安全教育模拟演练，增强学生安全意识，学习紧急应对措施。',
 						bgColor: '#C0CED6',
 						textColor: '#000'
@@ -65,7 +68,7 @@
 					{
 						num: '03',
 						name: 'VR高教职教',
-						imgUrl:'../../static/test/黑晶/home/img-3.png',
+						imgUrl:'static/test/黑晶/home/img-3.png',
 						context: '实训教学各环节仿真模拟，辅助损耗大、危险高的传统教学，节约教学资源，提升实训效率。',
 						bgColor: '#192337',
 						textColor: '#fff'
@@ -73,7 +76,7 @@
 					{
 						num: '04',
 						name: 'VR军事应用解决方案',
-						imgUrl:'../../static/test/黑晶/home/img-4.png',
+						imgUrl:'static/test/黑晶/home/img-4.png',
 						context: '军事理论培训/军械操作/军演模拟/作战指挥， 全面满足军事仿真训练需求，科技提升战斗力。',
 						bgColor: '#3B597A',
 						textColor: '#fff'
@@ -81,7 +84,7 @@
 					{
 						num: '04',
 						name: 'VR工业应用解决方案',
-						imgUrl:'../../static/test/黑晶/home/img-5.png',
+						imgUrl:'static/test/黑晶/home/img-5.png',
 						context: '军事理论培训/军械操作/军演模拟/作战指挥， 全面满足军事仿真训练需求，科技提升战斗力。',
 						bgColor: '#718A9B',
 						textColor: '#fff'
@@ -89,7 +92,7 @@
 					{
 						num: '06',
 						name: 'VR医疗应用解决方案',
-						imgUrl:'../../static/test/黑晶/home/img-7.png',
+						imgUrl:'static/test/黑晶/home/img-7.png',
 						context: '军事理论培训/军械操作/军演模拟/作战指挥， 全面满足军事仿真训练需求，科技提升战斗力。',
 						bgColor: '#F5E1D3',
 						textColor: '#000'
@@ -97,7 +100,7 @@
 					{
 						num: '08',
 						name: 'VR地产应用解决方案',
-						imgUrl:'../../static/test/黑晶/home/img-9.png',
+						imgUrl:'static/test/黑晶/home/img-9.png',
 						context: '军事理论培训/军械操作/军演模拟/作战指挥， 全面满足军事仿真训练需求，科技提升战斗力。',
 						bgColor: '#EBEAE1',
 						textColor: '#000'
@@ -105,7 +108,7 @@
 					{
 						num: '09',
 						name: 'VR旅游娱乐定制化开发',
-						imgUrl:'../../static/test/黑晶/home/img-10.png',
+						imgUrl:'static/test/黑晶/home/img-10.png',
 						context: '军事理论培训/军械操作/军演模拟/作战指挥， 全面满足军事仿真训练需求，科技提升战斗力。',
 						bgColor: '#0E0F24',
 						textColor: '#fff'
@@ -113,7 +116,7 @@
 					{
 						num: '09',
 						name: 'AR内容解决方案',
-						imgUrl:'../../static/test/黑晶/home/img-12.png',
+						imgUrl:'static/test/黑晶/home/img-12.png',
 						context: '军事理论培训/军械操作/军演模拟/作战指挥， 全面满足军事仿真训练需求，科技提升战斗力。',
 						bgColor: '#D4DEEE',
 						textColor: '#000'
@@ -123,7 +126,7 @@
 		},
 		mounted() {
 			new Swiper('.swiper-container', {
-				autoplay: 2000,
+				autoplay: 5000,
 				loop: true,
 				pagination: '.swiper-pagination',
 				prevButton: '.swiper-button-prev',
@@ -140,6 +143,9 @@
 	* {
 		margin: 0;
 		padding: 0;
+	}
+	.home {
+		min-width: 1100px;
 	}
 	.swiper-container {
 		width: 100%;
@@ -208,5 +214,23 @@
 	}
 	.swiper-pagination-bullet {
 		background: #fff !important;
+	}
+	.banner-text {
+		position: absolute;
+		border: 1px solid #fff;
+		font-size: 50px;
+		color: deepskyblue;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/*p {
+			text-align: center;
+			;
+		}*/
 	}
 </style>

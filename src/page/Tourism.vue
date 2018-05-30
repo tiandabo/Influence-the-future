@@ -1,17 +1,17 @@
 <template>
 	<div class="tourism">
-		<banner imgUrl="../../static/test/旅行大.jpeg"></banner>
+		<banner imgUrl="static/test/旅行大.jpeg"></banner>
 		<div class="guide">
 			<div>
-				<img src="../../static/test/旅游.png" />
+				<img src="static/test/旅游.png" />
 				<p>VR虚拟旅游</p>
 			</div>
 			<div>
-				<img src="../../static/test/07-游戏机.png" />
+				<img src="static/test/07-游戏机.png" />
 				<p>AR增强现实趣味游戏</p>
 			</div>
 			<div>
-				<img src="../../static/test/星际城市.png" />
+				<img src="static/test/星际城市.png" />
 				<p>VR未来城市</p>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 		</div>
 		<div class="ar-game">
 			<div class="game-image">
-				<img src="../../static/test/tourismImg/图片26.png" />
+				<img src="static/test/tourismImg/图片26.png" />
 			</div>
 			<div class="ar-game-content">
 				<h3>AR增强现实</h3>
@@ -64,7 +64,7 @@
 				</p>
 			</div>
 			<div class="vr-city-image">
-				<img src="../../static/test/tourismImg/a3bdadc1dbe524580afc11a25403411c.jpg" />
+				<img src="static/test/tourismImg/a3bdadc1dbe524580afc11a25403411c.jpg" />
 			</div>
 		</div>
 	</div>
@@ -76,35 +76,35 @@
 			return {
 				tourismCase: [{
 						imgUrl: [
-							'../../static/test/tourismImg/图片16.png',
-							'../../static/test/tourismImg/图片17.png',
-							'../../static/test/tourismImg/图片18.png'
+							'static/test/tourismImg/图片16.png',
+							'static/test/tourismImg/图片17.png',
+							'static/test/tourismImg/图片18.png'
 						],
 						content: '紫荆城VR是古今中外以来第一款1:1还原紫荆城（北京故宫）的场景，从具有传奇性的午门广场，到皇帝上朝的太和殿，再到演绎宫心计的东西后宫，最后到美轮美奂的御花园，紫荆城为游客提供了身临其境的游览，清朝皇帝、大臣、嫔妃、公公、侍卫、宫女全程贯穿，让游客充分了解紫荆城的前世今生……玩紫荆城VR，带你提要穿越时空的旅行！'
 					},
 					{
 						imgUrl: [
-							'../../static/test/tourismImg/图片19.png',
-							'../../static/test/tourismImg/图片20.png',
-							'../../static/test/tourismImg/图片21.png'
+							'static/test/tourismImg/图片19.png',
+							'static/test/tourismImg/图片20.png',
+							'static/test/tourismImg/图片21.png'
 						],
 						content: '  在VR场景里可以近距离接触到中国珍贵的文化遗产-兵马俑，您可以通过操作一睹2000多年前兵马俑最原原始的状态。'
 					},
 					{
 						imgUrl: [
-							'../../static/test/tourismImg/图片22.png',
-							'../../static/test/tourismImg/图片23.png',
-							'../../static/test/tourismImg/图片24.png'
+							'static/test/tourismImg/图片22.png',
+							'static/test/tourismImg/图片23.png',
+							'static/test/tourismImg/图片24.png'
 						],
 						content: '根据台湾新竹东门城实景所建构.创作之初，只是想透过3D电脑绘图技术，对周遭景物进行全方位的写生。后来接触到HTCVIVE，就尝试把场景导入，创造另一种漫游体验方式。'
 					},
 				],
 				arCase: [
-					'../../static/test/tourismImg/图片27.png',
-					'../../static/test/tourismImg/图片28.png',
-					'../../static/test/tourismImg/图片29.png',
-					'../../static/test/tourismImg/图片25.png',
-					'../../static/test/tourismImg/图片30.png',
+					'static/test/tourismImg/图片27.png',
+					'static/test/tourismImg/图片28.png',
+					'static/test/tourismImg/图片29.png',
+					'static/test/tourismImg/图片25.png',
+					'static/test/tourismImg/图片30.png',
 				]
 			}
 		},
@@ -114,6 +114,9 @@
 	}
 </script>
 <style lang="scss" scoped>
+	.tourism {
+		min-width: 100%;
+	}
 	.guide {
 		width: 65%;
 		margin: 30px auto;

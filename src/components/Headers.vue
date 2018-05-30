@@ -1,22 +1,29 @@
 <template>
 	<div class="head">
 		<div class="logo" @click="refresh" @mouseover="over" @mouseout="outs">
-			<img src="../../static/test/logo.png" />
+			<img src="../../static/test/logo/logo2.png" />
 			<div class="arrow">
-				<svg width="100%" height="100%" class="arrow-svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<!--<svg width="100%" height="100%" class="arrow-svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
 					<polyline points="12,18 4,9 12,0" style="fill:none;stroke:rgba(255,255,255,.5);stroke-width:2" />
-				</svg>
+				</svg>-->
+				<img src="../../static/test/箭头.svg"/>
 			</div>
-			<div class="triangle" v-if="secondMenu">
+			<div class="triangle" v-if="secondMenuShow">
 			</div>
-			<div v-if="secondMenu" class="second">
+			<div v-if="secondMenuShow" class="second">
 				<p class="trans"></p>
-				<p v-for="(i,index) in classify" v-if="index > 0">
+				<p v-for="(i,index) in secondMenu">
 					<router-link :to="i.jump">{{i.name}}</router-link>
+				</p>
+				<p>
+					<a href="http://www.henanhuize.com/" target="_blank">未来教育</a>
+				</p>
+				<p>
+					<a href="#">超级实验室</a>
 				</p>
 			</div>
 		</div>
-		<div class="right">
+		<div class="right" v-if="search==false">
 			<div v-for="i in classify" :key="i.name" @mousemove="hovers" class="classify">
 				<span :title="i.name" class="span"><router-link :to="i.jump">{{i.name}}</router-link></span>
 				<div v-if="i.child" class="child">
@@ -24,15 +31,26 @@
 				</div>
 			</div>
 		</div>
+		<div class="right-img">
+			<div class="search" v-if="search">
+				<input type="text" v-focus placeholder="Search……" @blur="searchHide" />
+				<img src="../../static/test/关闭.svg" @click="searchHide" />
+			</div>
+			<img src="static/test/搜索.svg" class="search-svg" @click="searchShow" v-else/>
+			<div class="language-div" @mousemove="languageShow">
+				<img src="static/test/社区-国际化.svg" class="internationalization" />
+				<div class="language">
+					<p>ENGLISH</p>
+					<p>简体中文[SIMPLIFIED CHINESE]</p>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 </template>
 
 <script>
-	// window.onresize = function(){
-	// 	alert(1)
-	// }
 	export default {
-
 		name: 'Headers',
 		data() {
 			return {
@@ -95,10 +113,10 @@
 						name: 'VR地产',
 						jump: "/estate"
 					},
-					{
-						name: '新闻',
-						jump: "/"
-					},
+					//					{
+					//						name: '新闻',
+					//						jump: "/"
+					//					},
 					{
 						name: '关于我们',
 						jump: '/introduce',
@@ -115,8 +133,35 @@
 					}
 
 				],
+				secondMenu: [
+					{
+						name: '全景摄像头',
+						jump: "/camera"
+					},
+					{
+						name: 'VR教育',
+						jump: "/classroom",
+					},
+					{
+						name: 'VR智慧旅游',
+						jump: "/tourism"
+					},
+					{
+						name: 'VR地产',
+						jump: "/estate"
+					},
+					{
+						name: 'VR科技党建',
+						jump: 'party'
+					},
+					{
+						name: 'VR购物Buy+',
+						jump: 'buy'
+					}
+				],
 				windowWidth: window.outerWidth,
-				secondMenu: false
+				secondMenuShow: false,
+				search: false
 			}
 		},
 		mounted() {
@@ -128,7 +173,16 @@
 				})()
 			}
 		},
+		directives: {
+			focus: {
+				// 指令的定义  
+				inserted: function(el) {
+					el.focus()
+				}
+			}
+		},
 		methods: {
+			//二级菜单
 			hovers() {
 				$(".classify").hover(function() {
 					$(this).children(".child").stop().slideDown()
@@ -145,17 +199,31 @@
 				//					this.$router.push("/")
 				//				}
 			},
+			//下拉菜单
 			over() {
-				// console.log(111)
-				this.secondMenu = true;
-//				$(".arrow").animate({transform:'rotate(270deg)'},200)
-//				$(".arrow").css({'transform':'rotate(270deg)'})
+				this.secondMenuShow = true;
 			},
 			outs() {
-				this.secondMenu = false;
-//				$(".arrow").animate({transform:'rotate(180deg)'},200)
-//				$(".arrow").css({'transform':'rotate(180deg)'})
+				this.secondMenuShow = false;
 			},
+			//搜索框
+			searchShow() {
+				this.search = true;
+			},
+			searchHide() {
+				this.search = false;
+			},
+			//语言现实隐藏
+			languageShow(){
+				$(".language-div").hover(function(){
+					$(this).children(".language").stop().slideDown()
+				},function(){
+					$(this).children(".language").stop().slideUp()
+				})
+			},
+//			languageHide(){
+//				this.language=false;
+//			},
 			windowChange() {
 				window.onresize = function() {
 					if(window.outerWidth > 1200) {
@@ -164,7 +232,6 @@
 
 				}
 			}
-
 		},
 		watch: {
 			windowWidth(val) {
@@ -173,13 +240,10 @@
 					this.timer = true
 					let that = this
 					setTimeout(function() {
-						if(that.windowWidth < 1200) {
-							// $(".head").css('width',"1200px")
-							$(".logo").css('margin-left', 0);
-							$(".right").css('margin-right', 0);
+						if(that.windowWidth < 1100) {
+							$(".head").css('width', "1100");
 						} else {
-							$(".logo").css('margin-left', '10%');
-							$(".right").css('margin-right', '10%');
+							$(".head").css('width', "100%");
 						}
 						// console.log(that.windowWidth)
 						that.timer = false
@@ -206,28 +270,30 @@
 		border-bottom: 1px solid #000;
 		width: 100%;
 		height: 63px;
-		line-height: 63px;
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
 		color: #fff;
 		.logo {
-			float: left;
-			margin-left: 10%;
+			/*float: left;*/
+			margin-left: 50px;
 			position: relative;
 			display: flex;
 			height: 100%;
 			justify-content: space-between;
 			align-items: center;
-			img {
+			>img {
 				width: 210px;
 				height: 30px;
 			}
-			&:hover .arrow{
+			&:hover .arrow {
 				cursor: pointer;
-				transform: rotate(270deg);
+				transform: rotate(180deg);
 			}
 		}
 		.right {
-			float: right;
-			margin-right: 10%;
+			/*float: left;
+			margin-left: 10%;*/
 			display: flex;
 			justify-content: space-between;
 			div {
@@ -244,6 +310,8 @@
 			}
 			.child {
 				position: absolute;
+				height: 80px;
+				line-height: 80px;
 				z-index: 10;
 				top: 63px;
 				left: 0;
@@ -322,8 +390,69 @@
 		width: 30px;
 		height: 30px;
 		text-align: center;
-		transform: rotate(180deg);
+		transform: rotate(90deg);
 		transform-origin: 50% 50%;
-		transition:transform .5s;
+		transition: transform .5s;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	/*.right-img 
+	}*/
+	
+	.right-img {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		.search {
+			width: 300px;
+			height: 40%;
+			padding: 10px;
+			background: rgba(255, 255, 255, .3);
+			display: flex;
+			justify-content: space-between;
+			border-radius: 6px;
+			input {
+				width: 250px;
+				height: 100%;
+				background: rgba(255, 255, 255, 0);
+				border: none;
+				outline: none;
+				color: #F4F4F4;
+			}
+		}
+		.internationalization {
+			margin:  0 80px 0 50px;
+		}
+	}
+	
+	input::-webkit-input-placeholder {
+		/*WebKit browsers*/
+		color: #B4B6BA;
+	}
+	
+	input::-moz-input-placeholder {
+		/*Mozilla Firefox*/
+		color: #B4B6BA;
+	}
+	
+	input::-ms-input-placeholder {
+		/*Internet Explorer*/
+		color: #B4B6BA;
+	}
+	.language {
+		position: absolute;
+		width: 150px;
+		font-size: 14px;
+		top: 63px;
+		right: 10px;
+		text-align: center;
+		padding: 10px;
+		background: rgba(0,0,0,.6);
+		display: none;
+		p{
+			padding: 5px 1px;
+		}
 	}
 </style>
